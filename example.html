@@ -16,27 +16,28 @@
     <script>
 
       (function() {
+        window._konaWidgetConfig = {
+          id: "conversationsiFrame",
+          key: 'afakekey',
+          domain: 'alpha.kona.com',
+          auth_token: 'afaketoken',
+          container_id: 'myContainer'
+        };
+
         var spaceChange = function(){
-          var win = document.getElementById("conversationsiFrame").contentWindow;
+          var win = document.getElementById(window._konaWidgetConfig.id).contentWindow;
           document.getElementById("spaceIdChanger").onchange = function() {
             win.postMessage(
               this.value,
-              "https://alpha.kona.com" 
+              "https://" + window._konaWidgetConfig.domain 
             );
             return false;
           }
         };
 
-        window._konaWidgetConfig = {
-          id: "conversationsiFrame",
-          key: 'your_application_specific_key',
-          domain: 'alpha.kona.com',
-          auth_token: 'optional_user_token',
-          protocol: 'https',
-          container_id: 'myContainer'
-        };
+        
         var script = document.createElement('script');
-        script.src = 'https://alpha.kona.com/kona/widgets/kona_widget_loader.js?conversations';
+        script.src = 'https://' + window._konaWidgetConfig.domain + '/kona/widgets/kona_widget_loader.js?conversations';
         var insertLocation = document.getElementsByTagName('script')[0];
         insertLocation.parentNode.insertBefore(script, insertLocation);
         if (script.addEventListener) {
