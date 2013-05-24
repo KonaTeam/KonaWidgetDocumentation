@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <title>Kona Converstaions Widget Test</title>
+  </head>
+  <body>
+    <form name="form">
+      <select name="space_id" id="spaceIdChanger">
+        <option value="">My Kona</option>
+        <option value="1">Space 1</option>
+        <option value="2">Space 2</option>
+      </select>
+    </form>
+    <div id="myContainer" style="width: 700px; height: 600px;"></div>
+    <script>
+
+      (function() {
+        var spaceChange = function(){
+          var win = document.getElementById("conversationsiFrame").contentWindow;
+          document.getElementById("spaceIdChanger").onchange = function() {
+            win.postMessage(
+              this.value,
+              "https://alpha.kona.com" 
+            );
+            return false;
+          }
+        };
+
+        window._konaWidgetConfig = {
+          id: "conversationsiFrame",
+          key: 'your_application_specific_key',
+          domain: 'alpha.kona.com',
+          auth_token: 'optional_user_token',
+          protocol: 'https',
+          container_id: 'myContainer'
+        };
+        var script = document.createElement('script');
+        script.src = 'https://alpha.kona.com/kona/widgets/kona_widget_loader.js?conversations';
+        var insertLocation = document.getElementsByTagName('script')[0];
+        insertLocation.parentNode.insertBefore(script, insertLocation);
+        if (script.addEventListener) {
+          return script.addEventListener('load', spaceChange, false);
+        } else {
+          return script.attachEvent('onreadystatechange', function() {
+            if (/complete|loaded/.test(script.readyState)) {
+              return spaceChange();
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
