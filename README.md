@@ -14,7 +14,8 @@ window._konaWidgetConfig = {
   key: 'afakeapplicationkey', //the application specific key you have been provided or genereated
   domain: 'alpha.kona.com', //the kona domain to call - only alpha at the moment
   auth_token: 'afaketoken', //the id of element to embed the widget_in
-  container_id: 'myContainer' //the id of element to embed the widget_in
+  container_id: 'myContainer', //the id of element to embed the widget_in
+  theme: 'themeId' // (optional) the id of the theme to use; valid values are 'light', 'dark', and 'kona'
 };
 ```
 
