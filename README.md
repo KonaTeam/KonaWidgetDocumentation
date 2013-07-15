@@ -10,11 +10,11 @@ Kona Widget Documentation
 
 ```javascript
 window._konaWidgetConfig = {
-  id: "widgetiFrame", //the id you want to give the widget iframe
-  key: 'afakeapplicationkey', //the application specific key you have been provided or genereated
-  domain: 'alpha.kona.com', //the kona domain to call - only alpha at the moment
-  auth_token: 'afaketoken', //the id of element to embed the widget_in
-  container_id: 'myContainer', //the id of element to embed the widget_in
+  id: "widgetiFrame", // the id you want to give the widget iframe
+  key: 'afakeapplicationkey', // (optional) the application specific key you have been provided or genereated
+  domain: 'alpha.kona.com', // the kona domain to call - only alpha at the moment
+  auth_token: 'afaketoken', // (optional) the authentication token of the user to log into the widget as 
+  container_id: 'myContainer', // the id of element to embed the widget_in
   theme: 'themeId' // (optional) the id of the theme to use; valid values are 'light', 'dark', and 'kona'
 };
 ```
