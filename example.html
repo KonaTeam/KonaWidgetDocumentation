@@ -18,9 +18,9 @@
       (function() {
         window._konaWidgetConfig = {
           id: "conversationsiFrame",
-          key: 'afakekey',
-          domain: 'alpha.kona.com',
-          auth_token: 'afaketoken',
+          key: 'clientID',
+          domain: 'io.kona.com',
+          auth_token: 'auth_token',
           container_id: 'myContainer'
         };
 
@@ -29,13 +29,13 @@
           document.getElementById("spaceIdChanger").onchange = function() {
             win.postMessage(
               this.value,
-              "https://" + window._konaWidgetConfig.domain 
+              "https://" + window._konaWidgetConfig.domain
             );
             return false;
           }
         };
 
-        
+
         var script = document.createElement('script');
         script.src = 'https://' + window._konaWidgetConfig.domain + '/kona/widgets/kona_widget_loader.js?conversations';
         var insertLocation = document.getElementsByTagName('script')[0];
