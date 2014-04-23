@@ -1,7 +1,7 @@
 Kona Widget Documentation
 =======================
 
-The Kona Widget allows you to embed Kona into your own applications for a more seemless integration. To learn more on how to get your client id and access token, please see our [Kona API documentation](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md)
+The Kona Widget allows you to embed Kona into your own applications for a more seemless integration. To learn more on how to get your client id and authenticate using OAuth 2.0, please see our [Kona API documentation](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md)
 
 The Kona Widget is available to Kona Business accounts. To learn more about Kona Business, please visit [Kona.com](https://kona.com/business) or, if you are interested in other integrations or extensibility, feel free to email us at support@kona.com.
 
@@ -17,7 +17,7 @@ window._konaWidgetConfig = {
   id: "widgetiFrame", // the id you want to give the widget iframe
   key: 'clientID', // (optional) the application specific key you have been provided or genereated
   domain: 'io.kona.com', // the kona production domain to call
-  auth_token: 'access_token', // (optional) the authentication token of the user to log into the widget as
+  oauth_token: 'access_token', // (optional) the OAuth 2.0 access token of the user to log as into the widget
   container_id: 'myContainer', // the id of element to embed the widget_in
   default_space: 'spaceId', // (optional) the id of the space you want to show by default
   disable_spaces: 'true', // (optional) set to 'true' if do not want to show the space drawer at the left side of the widget; valid values are 'true' and 'false'
@@ -25,6 +25,7 @@ window._konaWidgetConfig = {
   theme: 'themeId' // (optional) the id of the theme to use; valid values are 'light', 'dark', and 'kona'
 };
 ```
+**Note:** If the `oauth_token` is invalid or already expired, the widget will show the login page instead. The widget does not auto-refresh the token - the application has to validate and/or refresh the token before loading the widget. Refer to our API documentation for more details on how to do this.
 
 ##Programatically Change Spaces
 ```javascript

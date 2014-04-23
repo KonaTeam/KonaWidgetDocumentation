@@ -20,13 +20,13 @@
           id: "conversationsiFrame",
           key: 'clientID',
           domain: 'io.kona.com',
-          auth_token: 'auth_token',
+          oauth_token: 'access_token',
           container_id: 'myContainer'
         };
 
         var spaceChange = function(){
-          var win = document.getElementById(window._konaWidgetConfig.id).contentWindow;
           document.getElementById("spaceIdChanger").onchange = function() {
+            var win = document.getElementById(window._konaWidgetConfig.id).contentWindow;
             win.postMessage(
               this.value,
               "https://" + window._konaWidgetConfig.domain
