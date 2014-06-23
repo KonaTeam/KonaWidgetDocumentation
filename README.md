@@ -45,3 +45,5 @@ script.src = 'https://' + window._konaWidgetConfig.domain + '/kona/widgets/kona_
 var insertLocation = document.getElementsByTagName('script')[0];
 insertLocation.parentNode.insertBefore(script, insertLocation);
 ```
+##Notes
+* When embedding the widget on an installed application using a browser control and a web page, the widget may not load properly at times. This is possibly due to browser compatibility issue with the browser control. Try to include a DOCTYPE directive in your webpage (e.g. `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">`) and check the compatibility mode setting of the browser control. Kona supports Internet Explorer 9 & up and other modern, evergreen browsers.
